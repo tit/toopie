@@ -1,0 +1,14 @@
+table
+  tr
+    th id
+    th tag
+    th action
+  - for tag in tags do
+    tr
+      td = tag.id
+      td = tag.tag
+      td
+        a href="/admin/tags/edit/#{tag.id}" edit
+        span &nbsp|&nbsp
+        a href="/admin/tags/delete/#{tag.id}" onClick="return confirm('Delete tag?')" delete
+a href="/admin/tags/add" add

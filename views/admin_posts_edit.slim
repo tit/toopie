@@ -1,0 +1,25 @@
+form action="/admin/posts/edit" method="post"
+  label post:&nbsp;#{post.id}
+  input type="hidden" name="id" value="#{post.id}"
+  br
+  label data:&nbsp;#{post.date}
+  input type="hidden" name="date" value="#{post.date}"
+  br
+  label title:&nbsp;
+  input type="text" name="title" value="#{post.title}"
+  br
+  label body:&nbsp;
+  textarea name="body" #{post.body}
+  br
+  label draft?&nbsp;
+  - if post.draft
+    input type="checkbox" name="draft" checked="checked"
+  - else
+    input type="checkbox" name="draft"
+  br
+  label tag:&nbsp;
+  select name="tag"
+    - for tag in tags do
+      option value="#{tag.id}" = tag.tag
+  br
+  input type="submit"

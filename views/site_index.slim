@@ -1,0 +1,10 @@
+- for post in posts do
+  = post.date
+  br
+  = post.title
+  br
+  == post.body
+  br
+  a href="/tag/#{post.tag.id}" = post.tag.tag
+  br
+  br

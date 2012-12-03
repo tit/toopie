@@ -1,0 +1,22 @@
+table
+  tr
+    th id
+    th date
+    th title
+    th body
+    th draft
+    th tag
+    th action
+  - for post in posts do
+    tr
+      td = post.id
+      td = post.date
+      td = post.title
+      td = post.body
+      td = post.draft
+      td = post.tag.tag
+      td
+        a href="/admin/posts/edit/#{post.id}" edit
+        span &nbsp|&nbsp
+        a href="/admin/posts/delete/#{post.id}" onClick="return confirm('Delete post?')" delete
+a href="/admin/posts/add" add

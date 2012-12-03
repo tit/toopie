@@ -1,0 +1,16 @@
+form action="/admin/posts/add" method="post"
+  label title:&nbsp;
+  input type="text" name="title"
+  br
+  label body:&nbsp;
+  textarea name="body"
+  br
+  label draft?:&nbsp;
+  input type="checkbox" name="draft" checked="checked"
+  br
+  label tag:&nbsp;
+  select name="tag"
+    - for tag in tags do
+      option value="#{tag.id}" = tag.tag
+  br
+  input type="submit"
