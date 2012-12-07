@@ -1,10 +1,11 @@
 - for post in posts do
-  = post.date
-  br
-  = post.title
-  br
-  == post.body
-  br
-  a href="/tag/#{post.tag.id}" = post.tag.tag
-  br
-  br
+  article class="well"
+    time class="badge" #{post.date}
+    span &nbsp;
+    a href="/posts/#{post.id}" #{post.title}
+    div
+      == post.body
+    span Category:&nbsp;
+    a class="label label-info" href="/tags/#{post.tag.id}" #{post.tag.tag}
+    br
+    br

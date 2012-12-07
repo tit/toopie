@@ -4,6 +4,7 @@ require "rubygems"
 require "sinatra"
 require "data_mapper"
 require "slim"
+require "digest/md5"
 
 require "./models/main"
 require "./helpers/main"

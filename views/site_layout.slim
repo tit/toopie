@@ -1,0 +1,35 @@
+doctype html
+html lang="en"
+  head
+    title Toopie
+    meta charset="utf-8"
+    link href="/css/bootstrap.min.css" rel="stylesheet" media="screen"
+    css:
+      body
+      {
+        padding-top: 40px;
+        background-image: url(/img/background.jpg);
+      }
+  body
+    div class="container"
+      div class="navbar navbar-inverse"
+        div class="navbar-inner"
+          a class="brand" href="/" Toopie
+          ul class="nav"
+            li class="dropdown"
+              a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                | Tags
+                b class="caret"
+              ul class="dropdown-menu"
+                - for tag in enable_tags do
+                  li
+                    a href="/tags/#{tag.id}" #{tag.tag}
+                - for tag in disable_tags do
+                  li class="disabled"
+                    a href="/tags/#{tag.id}" #{tag.tag}
+            - for page in pages do
+              li
+                a href="/pages/#{page.urn}" #{page.title}
+      == yield
+    script src="/js/jquery.js"
+    script src="/js/bootstrap.min.js"

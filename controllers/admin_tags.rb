@@ -1,12 +1,12 @@
 get "/admin/tags" do
   protected!
   tags = Tag.all
-  slim :admin_tags, :layout => :admin_main, :locals => {:tags => tags}
+  slim :admin_tags, :layout => :admin_layout, :locals => {:tags => tags}
 end
 
 get "/admin/tags/add" do
   protected!
-  slim :admin_tags_add, :layout => :admin_main
+  slim :admin_tags_add, :layout => :admin_layout
 end
 
 post "/admin/tags/add" do
@@ -18,7 +18,7 @@ end
 get "/admin/tags/edit/:id" do
   protected!
   tag = Tag.get params[:id]
-  slim :admin_tags_edit, :layout => :admin_main, :locals => {:tag => tag}
+  slim :admin_tags_edit, :layout => :admin_layout, :locals => {:tag => tag}
 end
 
 post "/admin/tags/edit" do

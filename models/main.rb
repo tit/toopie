@@ -24,9 +24,9 @@ end
 class Page
   include DataMapper::Resource
   property :id, Serial
-  property :urn, String
-  property :title, String
-  property :content, Text
+  property :urn, String, :required => true
+  property :title, String, :required => true, :unique => true
+  property :body, Text, :required => true, :unique => true
 end
 
 DataMapper.finalize
