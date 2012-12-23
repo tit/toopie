@@ -1,0 +1,25 @@
+form action="/admin/post/edit" method="post"
+  label post:&nbsp;#{@post.id}
+  input type="hidden" name="id" value="#{@post.id}"
+  br
+  label data:&nbsp;#{@post.date}
+  input type="hidden" name="[post][date]" value="#{@post.date}"
+  br
+  label title:&nbsp;
+  input type="text" name="[post][title]" value="#{@post.title}"
+  br
+  label body:&nbsp;
+  textarea name="[post][body]" #{@post.body}
+  br
+  label draft?&nbsp;
+  - if @post.draft
+    input type="checkbox" name="[post][draft]" checked="checked"
+  - else
+    input type="checkbox" name="[post][draft]"
+  br
+  label category:&nbsp;
+  select name="[category][name]"
+    - for category in @categories do
+      option value="#{category.id}" = category.name
+  br
+  input type="submit"

@@ -1,0 +1,15 @@
+- for post in @post
+  article class="well"
+    time class="badge" #{post.date}
+    span &nbsp;
+    a class="label label-info" href="/category/#{post.category.name}" #{post.category.name}
+    a href="/post/#{post.id}"
+      h4 #{post.title}
+    div
+      == post.body
+    br
+    div id="disqus_thread"
+      javascript:
+        type="text/javascript";
+        var disqus_shortname = 'toopie';
+        (function(){var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();

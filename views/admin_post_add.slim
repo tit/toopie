@@ -1,0 +1,16 @@
+form action="/admin/post/add" method="post"
+  label title:&nbsp;
+  input type="text" name="[post][title]"
+  br
+  label body:&nbsp;
+  textarea name="[post][body]"
+  br
+  label draft?:&nbsp;
+  input type="checkbox" name="[post][draft]" checked="checked"
+  br
+  label category:&nbsp;
+  select name="[category][name]"
+    - for category in @categories do
+      option value="#{category.id}" = category.name
+  br
+  input type="submit"

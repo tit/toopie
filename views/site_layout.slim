@@ -11,6 +11,8 @@ html lang="en"
         background-image: url(/img/background.jpg);
       }
   body
+    a href="https://github.com/tit/toopie"
+      img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"
     div class="container"
       div class="navbar navbar-inverse"
         div class="navbar-inner"
@@ -18,18 +20,20 @@ html lang="en"
           ul class="nav"
             li class="dropdown"
               a href="#" class="dropdown-toggle" data-toggle="dropdown" 
-                | Tags
+                | Categories
                 b class="caret"
               ul class="dropdown-menu"
-                - for tag in enable_tags do
+                - for category in @enable_categories do
                   li
-                    a href="/tags/#{tag.id}" #{tag.tag}
-                - for tag in disable_tags do
+                    a href="/category/#{category.id}" #{category.name}
+                - for category in @disable_categories do
                   li class="disabled"
-                    a href="/tags/#{tag.id}" #{tag.tag}
-            - for page in pages do
+                    a href="/category/#{category.id}" #{category.name}
+            - for page in @pages do
               li
-                a href="/pages/#{page.urn}" #{page.title}
+                a href="/page/#{page.urn}" #{page.title}
       == yield
+      footer class="well"
+        a class="pull-right" href="mailto:sblohin@yandex.ru" sblohin@yandex.ru 
     script src="/js/jquery.js"
     script src="/js/bootstrap.min.js"

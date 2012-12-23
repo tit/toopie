@@ -1,11 +1,9 @@
-- for post in posts do
+- for post in @posts do
   article class="well"
     time class="badge" #{post.date}
     span &nbsp;
-    a href="/posts/#{post.id}" #{post.title}
+    a class="label label-info" href="/category/#{post.category.id}" #{post.category.name}
+    a href="/post/#{post.id}"
+      h4 #{post.title}
     div
       == post.body
-    span Category:&nbsp;
-    a class="label label-info" href="/tags/#{post.tag.id}" #{post.tag.tag}
-    br
-    br

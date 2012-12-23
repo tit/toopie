@@ -5,18 +5,18 @@ table
     th title
     th body
     th draft
-    th tag
+    th category
     th action
-  - for post in posts do
+  - for post in @posts do
     tr
       td = post.id
       td = post.date
       td = post.title
       td = post.body
       td = post.draft
-      td = post.tag.tag
+      td = post.category.name
       td
-        a href="/admin/posts/edit/#{post.id}" edit
+        a href="/admin/post/edit/#{post.id}" edit
         span &nbsp|&nbsp
-        a href="/admin/posts/delete/#{post.id}" onClick="return confirm('Delete post?')" delete
-a href="/admin/posts/add" add
+        a href="/admin/post/delete/#{post.id}" onClick="return confirm('Delete post?')" delete
+a href="/admin/post/add" add

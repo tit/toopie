@@ -1,0 +1,8 @@
+form action="/admin/category/edit" method="post"
+  label id:&nbsp;#{@category.id}
+  input type="hidden" name="id" value="#{@category.id}"
+  br
+  label category:&nbsp;
+  input type="text" name="[category][name]" value="#{@category.name}"
+  br
+  input type="submit"

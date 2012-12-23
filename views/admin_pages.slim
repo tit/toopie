@@ -5,14 +5,14 @@ table
     th title
     th body
     th action
-  - for page in pages do
+  - for page in @pages do
     tr
       td = page.id
       td = page.urn
       td = page.title
       td = page.body
       td
-        a href="/admin/pages/edit/#{page.id}" edit
+        a href="/admin/page/edit/#{page.id}" edit
         span &nbsp|&nbsp
-        a href="/admin/pages/delete/#{page.id}" onClick="return confirm('Delete page?')" delete
-a href="/admin/pages/add" add
+        a href="/admin/page/delete/#{page.id}" onClick="return confirm('Delete page?')" delete
+a href="/admin/page/add" add

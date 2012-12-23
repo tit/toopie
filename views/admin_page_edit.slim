@@ -1,0 +1,14 @@
+form action="/admin/page/edit" method="post"
+  label page:&nbsp;#{@page.id}
+  input type="hidden" name="id" value="#{@page.id}"
+  br
+  label urn:&nbsp;#{@page.urn}
+  input type="text" name="[page][urn]" value="#{@page.urn}"
+  br
+  label title:&nbsp;
+  input type="text" name="[page][title]" value="#{@page.title}"
+  br
+  label body:&nbsp;
+  textarea name="[page][body]" #{@page.body}
+  br
+  input type="submit"

@@ -1,33 +1,35 @@
-DataMapper.setup(:default, "sqlite:#{Dir.pwd}/db/main.db")
+# encoding: utf-8
+
+DataMapper.setup :default, "sqlite:#{Dir.pwd}/db/main.db"
 
 class Post
   include DataMapper::Resource
 
   property :id, Serial
-  property :date, Date, :required => true, :default => Time.now
-  property :title, String, :required => true, :unique => true, :messages => {:presence  => "Title can not be a empty", :is_unique => "Title must be a unique"}
-  property :body, Text, :required => true, :unique => true, :messages => {:presence  => "Body can not be a empty", :is_unique => "Body must be a unique"}
-  property :draft, Boolean, :default => true
+  property :date, Date, :default => Time.now
+  property :title, String
+  property :body, Text
+  property :draft, Boolean
 
-  belongs_to :tag
+  belongs_to :category
 end
 
-class Tag
+class Category
   include DataMapper::Resource
 
   property :id, Serial
-  property :tag, String, :required => true, :unique => true, :messages => {:presence => "Tags can not be a empty"}
+  property :name, String
 
   has n, :post
 end
 
 class Page
   include DataMapper::Resource
+
   property :id, Serial
-  property :urn, String, :required => true
-  property :title, String, :required => true, :unique => true
-  property :body, Text, :required => true, :unique => true
+  property :urn, String
+  property :title, String
+  property :body, Text
 end
 
-DataMapper.finalize
 DataMapper.auto_upgrade!

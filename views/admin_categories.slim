@@ -1,0 +1,14 @@
+table
+  tr
+    th id
+    th category
+    th action
+  - for category in @categories do
+    tr
+      td = category.id
+      td = category.name
+      td
+        a href="/admin/category/edit/#{category.id}" edit
+        span &nbsp|&nbsp
+        a href="/admin/category/delete/#{category.id}" onClick="return confirm('Delete category?')" delete
+a href="/admin/category/add" add
